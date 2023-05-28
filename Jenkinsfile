@@ -4,19 +4,19 @@ pipeline {
   stages {
     stage('Terraform Init') {
       steps {
-        sh 'terraform init'
+        sh 'terraform init -no-color'
       }
     }
 
     stage('Terraform Plan') {
       steps {
-        sh 'terraform plan -lock=false'
+        sh 'terraform plan -lock=false -no-color'
       }
     }
 
     stage('Terraform Apply') {
       steps {
-        sh 'terraform apply -auto-approve -lock=false'
+        sh 'terraform apply -auto-approve -lock=false -no-color'
       }
     }
   }
